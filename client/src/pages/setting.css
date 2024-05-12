@@ -1,0 +1,65 @@
+.setting-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(93, 117, 136);;
+  height: 100vh;
+}
+
+.profile-section1 {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  align-items: center;
+}
+
+.profile-image1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  
+}
+.menu-footer1{
+  background-color: rgb(83, 116, 143);;
+}
+
+.setting-section {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  gap: 30px; /* Add gap between the sections */
+  padding-left: 5%;
+  background-color: rgba(118, 167, 122, 0.485);
+
+  border-radius: 30px;
+}
+
+.profile-info,
+.change-password {
+  width: calc(60% - 30px); 
+  padding-right: 10%;
+}
+
+.setting-section h3 {
+  margin-bottom: 10px;
+}
+
+.setting-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.setting-input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.setting-button {
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+}

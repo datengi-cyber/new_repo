@@ -1,0 +1,188 @@
+
+/* Base styling for the inventory container */
+.inventory-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #72aa6d67;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Wrapper for inventory content */
+    .inventory-wrapper {
+    background: #52786582;
+    border-radius: 8px;
+    padding: 30px;
+    }
+    
+    /* Header styling */
+    .inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    }
+    
+    /* Title styling */
+    .inventory-header__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    }
+    
+    /* Statistics section */
+    .inventory-stats {
+    display: flex;
+    gap: 30px;
+    }
+    
+    /* Individual statistic styling */
+    .inventory-stat {
+    background: #ffffff;
+    padding: 35px 45px;
+    border: 2px solid #7c0d0d;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    }
+    
+    /* Border for specific stats */
+    /* .inventory-stat--border {
+    border-left: 3px solid #000000;
+    } */
+    
+    /* Label styling for stats */
+    .stat-label {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 5px;
+    }
+    
+    /* Value styling for stats */
+    .stat-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #292626;
+    }
+    
+    /* Note styling for stats */
+    .stat-note {
+    font-size: 12px;
+    color: #888;
+    }
+    
+    /* Product table */
+    .inventory-table {
+    margin-top: 20px;
+    }
+    
+    /* Header for product table */
+    .inventory-table__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    }
+    
+    /* Label styling for table header */
+    .inventory-table__header-label {
+    font-size: 20px;
+    font-weight: 600;
+    }
+    
+    /* Actions section */
+    .inventory-actions {
+    display: flex;
+    align-items: center;
+    }
+    
+    /* Styling for action buttons */
+    .inventory-action__button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    }
+    
+    /* Hover effect for action buttons */
+    .inventory-action__button:hover {
+    background-color: #45a049;
+    }
+    
+    /* Styling for search input */
+    .inventory-action__search {
+    padding: 8px;
+    border: 2px solid #a99191;
+    border-radius: 5px;
+    width: 200px;
+    }
+    
+    /* Table for products */
+    .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    }
+    
+    /* Styling for table headers and cells */
+    .product-table th, .product-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    }
+    
+    /* Styling for table headers */
+    .product-table th {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #837676;
+    border-radius: 4px;
+    }
+    
+    /* Styling for image in table */
+    .prod_img {
+    width: 40px;
+    height: auto;
+    border-radius: 20px;
+    }
+    
+    /* Styling for buttons within table cells */
+    .product-table td button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    /* Hover effect for buttons within table cells */
+    .product-table td button:hover {
+    background-color: #0056b3;
+    }
+    
+    /* Responsive design adjustments */
+    @media (max-width: 768px) {
+    .inventory-header, .inventory-stats, .inventory-table__header {
+    flex-direction: column;
+    align-items: flex-start;
+    }
+
+    .inventory-actions {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .inventory-stat {
+        width: 100%;
+    }
+    }    

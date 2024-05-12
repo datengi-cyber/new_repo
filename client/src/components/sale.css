@@ -1,0 +1,134 @@
+.customDialogContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customDialogOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.customDialogPanel {
+  background-color: white;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customInputStyle {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.customInputStyle:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.customBtnPrimary,
+.customBtnSecondary {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.customBtnPrimary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.customBtnSecondary {
+  background-color: #ccc;
+  color: #333;
+}
+
+.customBtnPrimary:hover,
+.customBtnSecondary:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+.customDialogContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.customDialogOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.customDialogPanel {
+  background-color: white;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.customInputStyle {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.customInputStyle:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.customBtnPrimary,
+.customBtnSecondary {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.customBtnPrimary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.customBtnSecondary {
+  background-color: #ccc;
+  color: #333;
+}
+
+.customBtnPrimary:hover,
+.customBtnSecondary:hover {
+  background-color: #0056b3;
+  color: #fff;
+}

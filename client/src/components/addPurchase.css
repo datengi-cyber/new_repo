@@ -1,0 +1,99 @@
+.purchase-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  padding-right: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4e4694;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.dialog-inner {
+  max-width: 400px;
+  width: 100%;
+}
+
+.dialog-panel {
+  background-color: #6e7a4a44;
+  width: 105%;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.panel-content {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.panel-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.panel-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.form-grid {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-field select,
+.form-field input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 0.875rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-actions button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-actions button:hover {
+  background-color: #4b5563;
+  color: #000000;
+}
