@@ -7,32 +7,6 @@ import "./dash.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const doughnutData = {
-  labels: ["Tshirt", "coat", "jacket", "Hoodies", "pants"],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 4, 6],
-      backgroundColor: [
-        'rgba(105, 99, 132, 1.8)', 
-        'rgba(40, 122, 235, 1.8)',  
-        'rgba(205, 106, 86, 1.8)',  
-        'rgba(25, 102, 186, 1.8)',  
-        'rgba(35, 106, 86, 1.8)'    
-      ],
-      borderColor: [
-        'rgba(105, 99, 132, 1)',
-        'rgba(40, 122, 235, 1)',
-        'rgba(205, 106, 86, 1)',
-        'rgba(25, 102, 186, 1)',
-        'rgba(35, 106, 86, 1)'
-      ],
-      borderWidth: 2
-    }
-  ]
-};
-
-
 function Dashboard() {
   const [saleAmount, setSaleAmount] = useState("");
   const [purchaseAmount, setPurchaseAmount] = useState("");
@@ -58,6 +32,8 @@ function Dashboard() {
     ],
   });
 
+  const [doughnutData, setDoughnutData] = useState(null); // Initialize doughnutData state
+
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
@@ -66,6 +42,8 @@ function Dashboard() {
     fetchStoresData();
     fetchProductsData();
     fetchMonthlySalesData();
+    fetchMonthlySalesData1();
+    
   }, []);
 
   const fetchTotalSaleAmount = async () => {
@@ -77,6 +55,37 @@ function Dashboard() {
       console.error('Failed to fetch total sale amount:', error);
     }
   };
+
+  const fetchMonthlySalesData = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/sales/getmonthly`);
+      const datas = await response.json();
+      console.log('Monthly sales data:', datas); 
+      updateChartData(datas.salesAmount);
+      calculateDoughnutData(datas.productStock);
+    } catch (error) {
+      console.error('Failed to fetch monthly sales data:', error);
+    }
+  };
+  
+  const fetchMonthlySalesData1 = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/sales/getmonthly`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch monthly sales data: ${response.status} ${response.statusText}`);
+      }
+      const datas = await response.json();
+      console.log('Monthly sales data:', datas); // Log the response
+      if (!datas || !datas.salesAmount || !datas.productStock) {
+        throw new Error('Invalid data format in the response');
+      }
+      updateChartData(datas.salesAmount);
+      calculateDoughnutData(datas.productStock); // Call function to calculate doughnutData
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
 
   const fetchTotalPurchaseAmount = async () => {
     try {
@@ -108,15 +117,16 @@ function Dashboard() {
     }
   };
 
-  const fetchMonthlySalesData = async () => {
-    try {
-      const response = await fetch(`http://localhost:4000/api/sales/getmonthly`);
-      const datas = await response.json();
-      updateChartData(datas.salesAmount);
-    } catch (error) {
-      console.error('Failed to fetch monthly sales data:', error);
-    }
-  };
+  // const fetchMonthlySalesData = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:4000/api/sales/getmonthly`);
+  //     const datas = await response.json();
+  //     updateChartData(datas.salesAmount);
+  //     calculateDoughnutData(datas.productStock); // Call function to calculate doughnutData
+  //   } catch (error) {
+  //     console.error('Failed to fetch monthly sales data:', error);
+  //   }
+  // };
 
   const updateChartData = (salesData) => {
     setChart({
@@ -125,6 +135,69 @@ function Dashboard() {
         name: "Monthly Sales Amount",
         data: [...salesData]
       }]
+    });
+  };
+
+  const calculateDoughnutData = (productStock) => {
+    const categoryStock = {
+      Tshirt: 0,
+      coat: 0,
+      jacket: 0,
+      Hoodies: 0,
+      pants: 0
+    };
+
+    productStock.forEach((product) => {
+      switch (product.category) {
+        case "Tshirt":
+          categoryStock.Tshirt += product.stock;
+          break;
+        case "coat":
+          categoryStock.coat += product.stock;
+          break;
+        case "jacket":
+          categoryStock.jacket += product.stock;
+          break;
+        case "Hoodies":
+          categoryStock.Hoodies += product.stock;
+          break;
+        case "pants":
+          categoryStock.pants += product.stock;
+          break;
+        default:
+          break;
+      }
+    });
+
+    setDoughnutData({
+      labels: ["Tshirt", "coat", "jacket", "Hoodies", "pants"],
+      datasets: [
+        {
+          label: '# of Stock',
+          data: [
+            categoryStock.Tshirt,
+            categoryStock.coat,
+            categoryStock.jacket,
+            categoryStock.Hoodies,
+            categoryStock.pants
+          ],
+          backgroundColor: [
+            'rgba(105, 99, 132, 1.8)', 
+            'rgba(40, 122, 235, 1.8)',  
+            'rgba(205, 106, 86, 1.8)',  
+            'rgba(25, 102, 186, 1.8)',  
+            'rgba(35, 106, 86, 1.8)'    
+          ],
+          borderColor: [
+            'rgba(105, 99, 132, 1)',
+            'rgba(40, 122, 235, 1)',
+            'rgba(205, 106, 86, 1)',
+            'rgba(25, 102, 186, 1)',
+            'rgba(35, 106, 86, 1)'
+          ],
+          borderWidth: 2
+        }
+      ]
     });
   };
 
@@ -186,13 +259,12 @@ function Dashboard() {
             <Chart options={chart.options} series={chart.series} type="bar" width="500" />
           </div>
           <div>
-          <Doughnut data={doughnutData} />
+            {doughnutData && <Doughnut data={doughnutData} />} {/* Render Doughnut component only if doughnutData is available */}
           </div>
         </div>
       </div>
     </>
   );
-  
 }
 
 export default Dashboard;

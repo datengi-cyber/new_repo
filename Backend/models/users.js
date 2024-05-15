@@ -7,19 +7,20 @@ const UserSchema = new mongoose.Schema({
     email: 'String',
     password: 'String',
     phoneNumber: 'Number',
+    address: "String",
     imageUrl: 'String',
 });
 
 // Hash password before saving user
-UserSchema.pre('save', async function (next) {
-    const user = this;
-    if (!user.isModified('password')) {
-      return next();
-    }
-    const hashedPassword = await bcrypt.hash(user.password, 10);
-    user.password = hashedPassword;
-    next();
-  });
+// UserSchema.pre('save', async function (next) {
+//     const user = this;
+//     if (!user.isModified('password')) {
+//       return next();
+//     }
+//     const hashedPassword = await bcrypt.hash(user.password, 10);
+//     user.password = hashedPassword;
+//     next();
+//   });
   
 
 const User = mongoose.model("users", UserSchema);

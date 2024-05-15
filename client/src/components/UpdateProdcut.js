@@ -1,19 +1,21 @@
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { PlusIcon } from "@heroicons/react/24/outline";
 import "./updateProduct.css"; 
 
 export default function UpdateProduct({
   updateProductData,
   updateModalSetting,
 }) {
-  const { _id, name, manufacturer, description } = updateProductData;
+  const { _id, name, manufacturer, description, price, stock } = updateProductData;
   const [product, setProduct] = useState({
     productID: _id,
     name: name,
     manufacturer: manufacturer,
     description: description,
+    price: price, // Add price field
+    stock: stock, // Add stock field
   });
+  
   const [open, setOpen] = useState(true);
   const cancelButtonRef = useRef(null);
 
@@ -76,18 +78,47 @@ export default function UpdateProduct({
                       placeholder="Ex. Apple iMac 27&ldquo;"
                     />
                   </div>
+                
                   <div>
-                    <label htmlFor="manufacturer">Manufacturer</label>
+                    <label htmlFor="size">Size</label>
                     <input
                       type="text"
-                      name="manufacturer"
-                      id="manufacturer"
-                      value={product.manufacturer}
+                      name="size"
+                      id="size"
+                      value={product.size}
                       onChange={(e) =>
                         handleInputChange(e.target.name, e.target.value)
                       }
                       className="dialog-input"
-                      placeholder="Ex. Apple"
+                      placeholder="size"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="stock">Stock</label>
+                    <input
+                      type="text"
+                      name="stock"
+                      id="stock"
+                      value={product.stock}
+                      onChange={(e) =>
+                        handleInputChange(e.target.name, e.target.value)
+                      }
+                      className="dialog-input"
+                      placeholder=""
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="price">price</label>
+                    <input
+                      type="text"
+                      name="price"
+                      id="price"
+                      value={product.price}
+                      onChange={(e) =>
+                        handleInputChange(e.target.name, e.target.value)
+                      }
+                      className="dialog-input"
+                      placeholder="$"
                     />
                   </div>
                   <div className="sm:col-span-2">

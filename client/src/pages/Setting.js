@@ -10,7 +10,7 @@ function Setting() {
     name: `${user.firstName} ${user.lastName}`,
     phone: user.phoneNumber || '',
     address: user.address || '',
-    oldPassword: '',
+    password: '',
     newPassword: '',
     confirmNewPassword: '',
   });
@@ -22,7 +22,7 @@ function Setting() {
       name: `${user.firstName} ${user.lastName}`,
       phone: user.phoneNumber || '',
       address: user.address || '',
-      oldPassword: '',
+      password: '',
       newPassword: '',
       confirmNewPassword: '',
     });
@@ -35,13 +35,13 @@ function Setting() {
 
   const changePassword = async () => {
     try {
-      console.log('Old Password:', userData.oldPassword);
+      console.log('Old Password:', userData.password);
       console.log('New Password:', userData.newPassword);
       console.log('Confirm New Password:', userData.confirmNewPassword);
   
       if (
         localStorageData &&
-        localStorageData.password === userData.oldPassword &&
+        localStorageData.password === userData.password &&
         userData.newPassword === userData.confirmNewPassword
       ) {
         // Update password in local storage

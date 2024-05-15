@@ -11,6 +11,7 @@ function Register() {
     password: "",
     phoneNumber: "",
     imageUrl: "",
+    address: "",
     agreedTerms: false,
   });
 
@@ -80,6 +81,7 @@ function Register() {
           <input name="lastName" type="text" placeholder="Last Name" value={form.lastName} onChange={handleInputChange} />
           <input name="email" type="email" placeholder="Email address" value={form.email} onChange={handleInputChange} />
           <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleInputChange} />
+          <input name="address" type="address" placeholder="address" value={form.address} onChange={handleInputChange} />
           <input name="phoneNumber" type="number" placeholder="Phone Number" value={form.phoneNumber} onChange={handleInputChange} />
           <UploadImage uploadImage={uploadImage} />
           <button type="submit">Sign up</button>
@@ -91,3 +93,4 @@ function Register() {
 }
 
 export default Register;
+ 

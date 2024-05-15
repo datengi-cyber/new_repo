@@ -42,7 +42,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(39, 41, 90, 0.76);
+    background-color: rgba(108, 75, 75, 0.76);
     border-radius: 0.6rem;
     padding : 6rem;
     padding-left: 3rem;
@@ -145,7 +145,7 @@
 }
 .logo-header{
   width: 80px;
-  background-color: #656363;
+  background-color: #34b373c3;
   color: wheat;
   height: auto;
   border-radius: 20px;
