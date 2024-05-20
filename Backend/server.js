@@ -7,6 +7,7 @@ const salesRoute = require("./router/sales");
 const cors = require("cors");
 const User = require("./models/users");
 const Product = require("./models/product");
+const path = require('path')
 
 
 const app = express();
@@ -89,3 +90,11 @@ app.get("/testget", async (req,res)=>{
 app.listen(PORT, () => {
   console.log(`Server is running on port, ${PORT}`);
 });
+
+app.use(express.static("./client/build"))
+app,get("*", (req, res)=>{
+  res.sendFile(path.resolve(__dirname, "client" , "build", "index.html"))
+});
+
+
+
